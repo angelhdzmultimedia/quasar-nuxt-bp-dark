@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const isLoading = ref(true)
 
-useDark().set(true)
+
 
 onMounted(() => {
   isLoading.value = false

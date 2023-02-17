@@ -1,17 +1,17 @@
 import { Dark } from 'quasar'
 
 export const useDark = () => {
-  const isActive = useState('isActive', () => Dark.isActive ?? true)
+  const cookie: string = localStorage.getItem('isDark') ?? 'true'
+  const isDark: boolean = cookie === 'true'
 
-  return {
-    set: (status: boolean) => {
-      isActive.value = status
-      Dark.set(isActive.value)
-    },
-    toggle: () => {
-      Dark.toggle()
-      isActive.value = Dark.isActive
-    },
-    isActive,
-  }
+  console.log(`[Dark Mode]: ${isDark}`)
+
+  Dark.set(isDark)
+
+  watch(
+    () => Dark.isActive,
+    (newValue: boolean) => {
+      localStorage.setItem('isDark', newValue.toString())
+    }
+  )
 }

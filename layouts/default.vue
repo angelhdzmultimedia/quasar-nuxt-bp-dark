@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const $q = useQuasar()
+useDark()
 </script>
 
 <template>
@@ -10,7 +11,7 @@ const $q = useQuasar()
         <q-toolbar-title>App</q-toolbar-title>
         <q-btn
           @click="$q.dark.toggle"
-          :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'"
+          :icon="$q.dark.isActive ? 'dark_mode' : 'light_mode'"
         />
       </q-toolbar>
     </q-header>
