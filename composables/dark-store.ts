@@ -1,6 +1,6 @@
 import { Dark } from 'quasar'
 
-export const useDark = () => {
+export const useDarkStore = () => {
   const cookie: string = localStorage.getItem('isDark') ?? 'true'
   const isDark: boolean = cookie === 'true'
 

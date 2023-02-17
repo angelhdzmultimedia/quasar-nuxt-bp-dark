@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const $q = useQuasar()
-useDark()
+useDarkStore()
 </script>
 
 <template>
