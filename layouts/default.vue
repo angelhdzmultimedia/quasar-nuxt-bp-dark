@@ -1,6 +1,5 @@
 <script setup lang="ts">
-const $q = useQuasar()
-useDarkStore()
+const dark = await useDark()
 </script>
 
 <template>
@@ -10,8 +9,8 @@ useDarkStore()
         <q-btn to="/" icon="home" />
         <q-toolbar-title>App</q-toolbar-title>
         <q-btn
-          @click="$q.dark.toggle"
-          :icon="$q.dark.isActive ? 'dark_mode' : 'light_mode'"
+          @click="dark.toggle"
+          :icon="dark.isActive ? 'dark_mode' : 'light_mode'"
         />
       </q-toolbar>
     </q-header>
