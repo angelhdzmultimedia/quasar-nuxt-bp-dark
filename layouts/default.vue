@@ -1,14 +1,17 @@
 <script setup lang="ts">
-onMounted(() => {})
+const $q = useQuasar()
 </script>
 
 <template>
   <q-layout dark view="hHh lpR fFf">
     <q-header dark>
       <q-toolbar dark>
-        <q-btn icon="home" />
+        <q-btn to="/" icon="home" />
         <q-toolbar-title>App</q-toolbar-title>
-        <q-btn @click="useDark().toggle" icon="light_mode" />
+        <q-btn
+          @click="$q.dark.toggle"
+          :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'"
+        />
       </q-toolbar>
     </q-header>
     <q-page-container class="window-width window-height">
