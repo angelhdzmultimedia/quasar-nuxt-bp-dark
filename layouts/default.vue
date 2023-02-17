@@ -10,7 +10,7 @@ const dark = useDark()
         <q-toolbar-title>App</q-toolbar-title>
         <q-btn
           @click="dark.toggle"
-          :icon="dark.isActive ? 'dark_mode' : 'light_mode'"
+          :icon="dark.isActive.value ? 'dark_mode' : 'light_mode'"
         />
       </q-toolbar>
     </q-header>
