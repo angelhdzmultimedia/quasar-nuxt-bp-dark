@@ -13,24 +13,18 @@ export const useDark = () => {
     isActive.value = Dark.isActive
   }
 
-  function load(): Promise<void> {
-    return new Promise((resolve) => {
-      const cookie: string = localStorage.getItem('isDark') ?? 'true'
+  const cookie: string = localStorage.getItem('isDark') ?? 'true'
+  isActive.value = cookie === 'true'
+  Dark.set(isActive.value)
 
-      console.log(`[Dark Mode]: ${isActive.value}`)
-      Dark.set(cookie === 'true')
-
-      watch(isActive, (newValue: boolean) => {
-        localStorage.setItem('isDark', newValue.toString())
-      })
-      resolve()
-    })
-  }
+  watch(isActive, (newValue: boolean) => {
+    console.log(`[Dark Mode]: ${newValue}`)
+    localStorage.setItem('isDark', newValue.toString())
+  })
 
   return {
     set,
     isActive,
-    load,
     toggle,
   }
 }

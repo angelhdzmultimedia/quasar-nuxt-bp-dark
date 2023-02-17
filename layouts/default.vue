@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const dark = await useDark()
+const dark = useDark()
 </script>
 
 <template>
