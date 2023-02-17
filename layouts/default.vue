@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const dark = useDark()
+Dark.set(true)
 </script>
 
 <template>

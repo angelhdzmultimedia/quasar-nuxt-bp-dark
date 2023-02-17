@@ -18,4 +18,11 @@ export default defineNuxtConfig({
   build: {
     transpile: ['quasar', '@happy-dom/global-registrator'],
   },
+
+  imports: {
+    imports: [
+      {from: 'quasar', name: 'useQuasar'},
+      {from: 'quasar', name: 'Dark'},
+    ]
+  }
 })
