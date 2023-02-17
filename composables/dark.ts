@@ -1,30 +1,25 @@
-import { Dark } from 'quasar'
-
 export const useDark = () => {
-  const isActive = useState('isActive', () => false)
+  const cookie = localStorage.getItem('darkMode') || '{"isActive": false}'
+  const darkMode = JSON.parse(cookie)
+  const isActive = ref(darkMode.isActive)
+  Dark.set(isActive.value)
 
   function set(value: boolean) {
     Dark.set(value)
-    isActive.value = value
+    localStorage.setItem(
+      'darkMode',
+      JSON.stringify({
+        isActive: value,
+      })
+    )
   }
 
-  function toggle(): void {
-    Dark.toggle()
-    isActive.value = Dark.isActive
+  function toggle() {
+    isActive.value = !isActive.value
+    set(isActive.value)
   }
-
-  const cookie: string = localStorage.getItem('isDark') ?? 'true'
-  isActive.value = cookie === 'true'
-  Dark.set(isActive.value)
-
-  watch(isActive, (newValue: boolean) => {
-    console.log(`[Dark Mode]: ${newValue}`)
-    localStorage.setItem('isDark', newValue.toString())
-  })
-
   return {
-    set,
-    isActive,
     toggle,
+    isActive,
   }
 }

@@ -9,10 +9,18 @@ onMounted(() => {
 <template>
   <div
     v-if="isLoading"
-    class="window-width column window-height items-center justify-center"
+    class="
+      column
+      items-center
+      justify-center
+      window-width window-height
+      overflow-hidden
+    "
   >
+    <span>WSOD (White Screen Of Death xD)</span>
     <q-spinner color="primary" size="3em" />
   </div>
+
   <NuxtLayout v-else>
     <NuxtPage />
   </NuxtLayout>
